@@ -362,12 +362,14 @@ class AboutViewController extends WPDKViewController {
    */
   public function __construct() {
     // Build the container, with default header
-    parent::__construct( 'my-view-controller-2', 'WPDK Sample Plugin #1 - Output of second view controller' );
+    parent::__construct( 'my-view-controller-2', 'WPDK Sample Plugin #2 - Output of second view controller' );
   }
 
   public function display() {
-    // show default header of this view controller
-    $this->viewHead->display();
+
+    // call parent display to build default page structure
+    parent::display();
+
     // show custom content
 ?>
     <h3>View Controller ID: <?php echo $this->id ?></h3>
