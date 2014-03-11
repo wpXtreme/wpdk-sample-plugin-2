@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @class           ControlsViewController
  * @author          wpXtreme team
@@ -16,7 +17,8 @@ class ControlsViewController extends WPDKViewController {
    *
    * @return ControlsViewController
    */
-  public function __construct()  {
+  public function __construct()
+  {
 
     // Build the container, with default header
     parent::__construct( 'controls-view-controller', 'Title - Controls view controller' );
@@ -312,7 +314,7 @@ class ControlsView extends WPDKView {
         ),
         array(
           array(
-            'type'  => WPDKUIControlType::CUSTOM,
+            'type'    => WPDKUIControlType::CUSTOM,
             'content' => 'Custom Control'
           )
         ),
@@ -325,16 +327,19 @@ class ControlsView extends WPDKView {
   }
 
   // TODO
-  public function callback_options() {
+  public function callback_options()
+  {
     $options = array(
       'mac-os'  => 'Mac OS',
       'windows' => 'Windows',
       'linux'   => 'Linux',
     );
+
     return $options;
   }
 
-  public function draw()  {
+  public function draw()
+  {
 
     // This is the way the view processes your graphic controls layout, in order to produce the corresponding HTML into it
     $controls = new WPDKUIControlsLayout( $this->fields() );
@@ -360,21 +365,23 @@ class AboutViewController extends WPDKViewController {
    *
    * @return AboutViewController
    */
-  public function __construct() {
+  public function __construct()
+  {
     // Build the container, with default header
     parent::__construct( 'my-view-controller-2', 'WPDK Sample Plugin #2 - Output of second view controller' );
   }
 
-  public function display() {
+  public function display()
+  {
 
     // call parent display to build default page structure
     parent::display();
 
     // show custom content
-?>
+    ?>
     <h3>View Controller ID: <?php echo $this->id ?></h3>
     <div>This is a generic content of second view controller.</div>
-<?php
+  <?php
   }
 
 }
