@@ -11,6 +11,23 @@
 class ControlsViewController extends WPDKViewController {
 
   /**
+   * Return a singleton instance of ControlsViewController class
+   *
+   * @brief Singleton
+   *
+   * @return ControlsViewController
+   */
+  public static function init()
+  {
+    static $instance = null;
+    if ( is_null( $instance ) ) {
+      $instance = new self();
+    }
+
+    return $instance;
+  }
+
+  /**
    * Create an instance of ControlsViewController class
    *
    * @brief Construct
@@ -29,6 +46,18 @@ class ControlsViewController extends WPDKViewController {
     // Add this specialized WPDKView to this ViewController
     $this->view->addSubview( $controls_view );
 
+  }
+
+  /**
+   * This method is called when the head of this view controller is loaded by WordPress.
+   * It is used by WPDKMenu for example, as 'admin_head-' action.
+   *
+   * @brief Head
+   * @since 1.4.18
+   */
+  public function admin_head()
+  {
+   WPDKUIComponents::init()->enqueue( WPDKUIComponents::ALERT, WPDKUIComponents::TOOLTIP );
   }
 
 }
@@ -287,29 +316,22 @@ class ControlsView extends WPDKView {
         array(
           array(
             'type'  => WPDKUIControlType::ALERT,
-            'value' => 'Twitter Bootstrap Alert with dismiss button'
-          )
-        ),
-        array(
-          array(
-            'type'  => WPDKUIControlType::ALERT,
-            'block' => true,
-            'value' => 'Twitter Bootstrap Alert in block mode'
+            'value' => 'Alert with dismiss button'
           )
         ),
         array(
           array(
             'type'       => WPDKUIControlType::ALERT,
-            'alert_type' => WPDKTwitterBootstrapAlertType::ALERT,
-            'value'      => 'Content of Alert type <code>WPDKTwitterBootstrapAlertType::ALERT</code>'
+            'alert_type' => WPDKUIAlertType::DANGER,
+            'value'      => 'Content of Alert type <code>WPDKUIAlertType::DANGER</code>'
           )
         ),
         array(
           array(
             'type'           => WPDKUIControlType::ALERT,
-            'alert_type'     => WPDKTwitterBootstrapAlertType::SUCCESS,
+            'alert_type'     => WPDKUIAlertType::SUCCESS,
             'dismiss_button' => false,
-            'value'          => 'Content of Alert type <code>WPDKTwitterBootstrapAlertType::SUCCESS</code> without dismiss button'
+            'value'          => 'Content of Alert type <code>WPDKUIAlertType::SUCCESS</code> without dismiss button'
           )
         ),
         array(
@@ -326,7 +348,13 @@ class ControlsView extends WPDKView {
 
   }
 
-  // TODO
+  /**
+   * Return a key value pairs array with value and label for a select
+   *
+   * @brief Combo select
+   *
+   * @return array
+   */
   public function callback_options()
   {
     $options = array(
@@ -338,6 +366,11 @@ class ControlsView extends WPDKView {
     return $options;
   }
 
+  /**
+   * Draw the view content
+   *
+   * @brief Draw
+   */
   public function draw()
   {
 
@@ -359,6 +392,23 @@ class ControlsView extends WPDKView {
 class AboutViewController extends WPDKViewController {
 
   /**
+   * Return a singleton instance of AboutViewController class
+   *
+   * @brief Singleton
+   *
+   * @return AboutViewController
+   */
+  public static function init()
+  {
+    static $instance = null;
+    if ( is_null( $instance ) ) {
+      $instance = new self();
+    }
+
+    return $instance;
+  }
+
+  /**
    * Create an instance of AboutViewController class
    *
    * @brief Construct
@@ -371,6 +421,11 @@ class AboutViewController extends WPDKViewController {
     parent::__construct( 'my-view-controller-2', 'WPDK Sample Plugin #2 - Output of second view controller' );
   }
 
+  /**
+   * Display
+   *
+   * @brief Display
+   */
   public function display()
   {
 
