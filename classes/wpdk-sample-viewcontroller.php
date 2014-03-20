@@ -57,7 +57,7 @@ class ControlsViewController extends WPDKViewController {
    */
   public function admin_head()
   {
-   WPDKUIComponents::init()->enqueue( WPDKUIComponents::ALERT, WPDKUIComponents::TOOLTIP );
+    WPDKUIComponents::init()->enqueue( WPDKUIComponents::ALERT, WPDKUIComponents::TOOLTIP );
   }
 
 }
@@ -266,6 +266,14 @@ class ControlsView extends WPDKView {
             'id'    => 'number',
             'label' => 'Number',
             'title' => 'This is a true HTML 5 input type number. If your browser does not support it... upgrade your browser!'
+          ),
+          array(
+            'type'        => WPDKUIControlType::NUMBER,
+            'id'          => 'number',
+            'label'       => 'Number with size',
+            'placeholder' => 'size = 28',
+            'size'        => 28,
+            'title'       => 'This is a true HTML 5 input type number. If your browser does not support it... upgrade your browser!'
           ),
           array(
             'type'  => WPDKUIControlType::PHONE,
